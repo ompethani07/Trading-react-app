@@ -1,4 +1,4 @@
-import { Button, HStack, Icon, Stack, Tag, Text } from "@chakra-ui/react";
+import { Button, HStack, Icon, Stack, Tag, Text} from "@chakra-ui/react";
 import React from "react";
 import { FaInfoCircle } from "react-icons/fa";
 import { FaArrowDownLong, FaArrowUpLong } from "react-icons/fa6";
@@ -82,10 +82,12 @@ const Portfoliosection = () => {
       </HStack>
 
       <HStack mt={{ base: "2" }}>
-        <Button leftIcon={<Icon as={FaArrowDownLong} fontSize={'15px'}/>}>
+        <Button>
+        {/* leftIcon={<Icon as={FaArrowDownLong} fontSize={'15px'}/>} */}
           Deposit
         </Button>
-        <Button leftIcon={<Icon as={FaArrowUpLong} fontSize={"15px"} />}>
+        <Button>
+        {/* leftIcon={<Icon as={FaArrowUpLong} fontSize={"15px"} />} */}
           Withdraw
         </Button>
       </HStack>
