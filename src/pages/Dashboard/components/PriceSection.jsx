@@ -56,10 +56,10 @@ const PriceSection = () => {
         </Stack>
 
         <HStack mt={{ base: "2" }}>
-          <Button leftIcon=<Icon as={FaPlusCircle} fontSize={"15px"} />>
+          <Button leftIcon={<Icon as={FaPlusCircle} fontSize={"15px"}/>}>
             Buy
           </Button>
-          <Button leftIcon=<Icon as={FaCircleMinus} fontSize={"15px"} />>
+          <Button leftIcon={<Icon as={FaCircleMinus} fontSize={"15px"} />}>
             Sell
           </Button>
         </HStack>
