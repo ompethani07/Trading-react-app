@@ -18,7 +18,7 @@ const Sidenav = () => {
   ];
   return (
     <div>
-      <Stack bg="white" justifyContent="space-between" boxShadow={{base:"none",lg:"lg"}} h={{base:"95vh",lg:"100vh"}} w={{base:"100%",lg:"15rem"}}>
+      <Stack bg="white" justifyContent="space-between" boxShadow={{base:"none",lg:"lg"}} h={{base:"full",lg:"full",xl:"full"}} w={{base:"100%",lg:"15rem"}}>
         <Box>
           <Heading
             fontSize={"20px"}
