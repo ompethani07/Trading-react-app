@@ -22,7 +22,7 @@ const Portfoliosection = () => {
       <HStack
         spacing={{
           base: 4,
-          xl: "16",
+          xl: 12,
         }}
         flexDir={{
           base: "column",

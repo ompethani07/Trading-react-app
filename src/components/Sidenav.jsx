@@ -3,6 +3,7 @@ import React from "react";
 import { RxDashboard } from "react-icons/rx";
 import { LuArrowDownUp } from "react-icons/lu";
 import { BiSupport } from "react-icons/bi";
+import { Link } from "react-router-dom";
 const Sidenav = () => {
   const navlink = [
     {
@@ -15,10 +16,11 @@ const Sidenav = () => {
       text: "Transaction",
       link: "/transaction",
     },
+
   ];
   return (
     <div>
-      <Stack bg="white" justifyContent="space-between" boxShadow={{base:"none",lg:"lg"}} h={{base:"full",lg:"full",xl:"full"}} w={{base:"100%",lg:"15rem"}}>
+      <Stack bg="white" justifyContent="space-between" boxShadow={{base:"none",lg:"lg"}} h={{base:"100vh",lg:"100vh",xl:"100vh"}} w={{base:"100%",lg:"15rem"}}>
         <Box>
           <Heading
             fontSize={"20px"}
@@ -30,8 +32,8 @@ const Sidenav = () => {
           </Heading>
           <Box mt={"6"} mx={"3"}>
             {navlink.map((nav) => (
+              <Link to={nav.link} key={nav.text}>
               <HStack
-                key={nav.text}
                 py={"3"}
                 px={"4"}
                 color={"#797E82"}
@@ -39,6 +41,7 @@ const Sidenav = () => {
                   bg: "#F3E3F7",
                   color: "#171717",
                   borderRadius: "10px",
+                
                 }}
               >
                 <Icon fontSize={"20px"}>{nav.icon}</Icon>
@@ -46,11 +49,13 @@ const Sidenav = () => {
                   {nav.text}
                 </Text>
               </HStack>
+              </Link>
             ))}
           </Box>
         </Box>
 
         <Box mt={"6"} mx={"3"} mb={"6"}>
+         <Link to={"/support"}>
           <HStack
             py={"3"}
             px={"4"}
@@ -68,6 +73,7 @@ const Sidenav = () => {
               Support
             </Text>
           </HStack>
+          </Link>
         </Box>
       </Stack>
     </div>
