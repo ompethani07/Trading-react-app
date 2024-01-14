@@ -3,8 +3,12 @@ import React from "react";
 import { RxDashboard } from "react-icons/rx";
 import { LuArrowDownUp } from "react-icons/lu";
 import { BiSupport } from "react-icons/bi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const Sidenav = () => {
+  const location = useLocation();
+  const isactivelink = (link) => {
+    return location.pathname == link;
+  };
   const navlink = [
     {
       icon: <RxDashboard />,
@@ -16,32 +20,33 @@ const Sidenav = () => {
       text: "Transaction",
       link: "/transaction",
     },
-
   ];
   return (
-    <div>
-      <Stack bg="white" justifyContent="space-between" boxShadow={{base:"none",lg:"lg"}} h={{base:"100vh",lg:"100vh",xl:"100vh"}} w={{base:"100%",lg:"15rem"}}>
-        <Box>
-          <Heading
-            fontSize={"20px"}
-            as={"h1"}
-            pt={"3.5rem"}
-            textAlign={"center"}
-          >
-            @OmPethani
-          </Heading>
-          <Box mt={"6"} mx={"3"}>
-            {navlink.map((nav) => (
-              <Link to={nav.link} key={nav.text}>
+    <Stack
+      bg="white"
+      justifyContent="space-between"
+      boxShadow={{ base: "none", lg: "lg" }}
+      h={{ base: "full", lg: "full", xl: "full" }}
+      w={{ base: "100%", lg: "15rem" }}
+    >
+      <Box>
+        <Heading fontSize={"20px"} as={"h1"} pt={"3.5rem"} textAlign={"center"}>
+          @OmPethani
+        </Heading>
+        <Box mt={"6"} mx={"3"}>
+          {navlink.map((nav) => ( 
+            <Link to={nav.link} key={nav.text}>
               <HStack
+              mt={3}
                 py={"3"}
                 px={"4"}
-                color={"#797E82"}
+                bg={isactivelink(nav.link) ? "#F3E3F7" : "transparent"}
+                color={isactivelink(nav.link) ? "#171717" : "#797E82"}
+                rounded={"md"}
                 _hover={{
                   bg: "#F3E3F7",
                   color: "#171717",
                   borderRadius: "10px",
-                
                 }}
               >
                 <Icon fontSize={"20px"}>{nav.icon}</Icon>
@@ -49,17 +54,18 @@ const Sidenav = () => {
                   {nav.text}
                 </Text>
               </HStack>
-              </Link>
-            ))}
-          </Box>
+            </Link>
+          ))}
         </Box>
+      </Box>
 
-        <Box mt={"6"} mx={"3"} mb={"6"}>
-         <Link to={"/support"}>
+      <Box mt={"6"} mx={"3"} mb={"6"}>
+        <Link to={"/support"}>
           <HStack
             py={"3"}
             px={"4"}
-            color={"#797E82"}
+            bg={isactivelink("/support") ? "#F3E3F7" : "transparent"}
+            color={isactivelink("/support") ? "#171717" : "#797E82"}
             _hover={{
               bg: "#F3E3F7",
               color: "#171717",
@@ -73,10 +79,9 @@ const Sidenav = () => {
               Support
             </Text>
           </HStack>
-          </Link>
-        </Box>
-      </Stack>
-    </div>
+        </Link>
+      </Box>
+    </Stack>
   );
 };
 

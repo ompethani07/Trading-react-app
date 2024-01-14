@@ -4,7 +4,7 @@ import { Tag, Text } from '@chakra-ui/react'
 
 const Infocard = ({Imgurl , tagtext,text ,inverted}) => {
   return (
-    <Customcard mb={inverted?6:0}
+    <Customcard mb={inverted?4:0}
     bgColor={inverted?"p.purple":"white"}
     bgImage={Imgurl}
     bgSize={"cover"}
